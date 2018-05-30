@@ -20,6 +20,13 @@ class ActivityTest < Minitest::Test
     assert_equal ({:name=>"Angi", :cost=>"20"}), expected
   end
 
+  def test_total_cost_of_activity
+    activity = Activity.new({activity_name: 'noodling', base_cost: 10, cost_per_participant: 20, participants:{name: 'Angi',cost: '20'} })
+    expected = activity.total_cost_of_activity
+    assert_equal 30, expected
+  end
+
+
 
 
 end

@@ -11,8 +11,13 @@ class Activity
   end
 
   def add_participants(customers)
-    customers 
+    customers
   end
+
+  def total_cost_of_activity
+    @base_cost + @cost_per_participant
+  end
+
 
 
 
