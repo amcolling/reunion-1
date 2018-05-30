@@ -1,9 +1,9 @@
-require 'pry'
 class Activity
   attr_reader :activity_name,
               :base_cost,
               :cost_per_participant,
               :participants
+
 
   def initialize(attributes)
     @activity_name = attributes[:activity_name]

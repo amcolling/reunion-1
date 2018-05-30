@@ -16,7 +16,7 @@ class ReunionTest < Minitest::Test
     expected = reunion.has_activities('snake_hunting')
     assert_equal ('snake_hunting'), expected
     expected = reunion.adds_activities('glass_blowing')
-    assert_equal 'glass_blowing', expected
+    assert_equal ['glass_blowing'], expected
   end
 
 end
