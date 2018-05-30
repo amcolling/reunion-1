@@ -1,6 +1,8 @@
 require 'pry'
 class Activity
-  attr_reader :name,
+  attr_reader :activity_name,
+              :base_cost,
+              :cost_per_participant,
               :participants
 
   def initialize(attributes)
@@ -16,6 +18,13 @@ class Activity
 
   def total_cost_of_activity
     @base_cost + @cost_per_participant
+  end
+
+  def total_owed
+    owed = @participants.map do |participant|
+      total_cost_of_activity - participant[1]
+    end
+    owed
   end
 
 
