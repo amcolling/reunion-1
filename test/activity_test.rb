@@ -5,19 +5,19 @@ require './lib/activity'
 
 class ActivityTest < Minitest::Test
   def test_it_exists
-    activity = Activity.new({activity_name: 'noodling', base_cost: 10, cost_per_participant: 20, participants:{name: 'Angi',cost: '20'} })
+    activity = Activity.new({activity_name: 'noodling', base_cost: 10, cost_per_participant: 20, participants:{'Angi' => 10, 'John' => 30} })
     assert_instance_of Activity, activity
   end
 
   def test_participants
-    activity = Activity.new({activity_name: 'noodling', base_cost: 10, cost_per_participant: 20, participants:{name: 'Angi',cost: '20'} })
-    assert_equal ({:name=>"Angi", :cost=>"20"}), activity.participants
+    activity = Activity.new({activity_name: 'noodling', base_cost: 10, cost_per_participant: 20, participants: {'Angi' => 10, 'John' => 30} })
+    assert_equal ({'Angi' => 10, 'John' => 30}), activity.participants
   end
 
   def test_add_participants
-    activity = Activity.new({activity_name: 'noodling', base_cost: 10, cost_per_participant: 20, participants:{name: 'Angi',cost: '20'} })
-    expected = activity.add_participants({name: 'Angi',cost: '20'})
-    assert_equal ({:name=>"Angi", :cost=>"20"}), expected
+    activity = Activity.new({activity_name: 'noodling', base_cost: 10, cost_per_participant: 20, participants:{'Angi' => 10, 'John' => 30} })
+    expected = activity.add_participants({'Angi' => 10, 'John' => 30})
+    assert_equal ({'Angi' => 10, 'John' => 30}), expected
   end
 
   def test_total_cost_of_activity
