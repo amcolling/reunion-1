@@ -29,7 +29,7 @@ class ActivityTest < Minitest::Test
   def test_total_owed
     activity = Activity.new({activity_name: 'snake_hunting', base_cost: 10, cost_per_participant: 20, participants:{'Angi' => 10, 'John' => 30} })
     expected = activity.total_owed
-    assert_equal '', expected
+    assert_equal [20, 0], expected
   end
 
 
